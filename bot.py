@@ -1,8 +1,7 @@
 import asyncio
-import logging
 
 from aiogram import Bot, Dispatcher, F
-from aiogram.filters import CommandStart, Command
+from aiogram.filters import Command
 from aiogram.types import Message
 
 
@@ -66,4 +65,3 @@ async def main():
 
 if __name__ == "__main__":
     asyncio.run(main())
-
