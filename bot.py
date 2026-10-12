@@ -3,7 +3,7 @@ import asyncio
 from aiogram import Bot, Dispatcher, F
 from aiogram.filters import Command
 from aiogram.types import Message
-
+from app.handlers import router
 
 from config import TOKEN
 
@@ -61,7 +61,7 @@ async def dianon(message: Message):
 
 
 async def main():
-    dp.include_router()
+    dp.include_router(router)  #<-------
     await dp.start_polling(bot)
 
 if __name__ == "__main__":
