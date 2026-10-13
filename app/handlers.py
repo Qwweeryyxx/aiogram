@@ -17,8 +17,13 @@ router = Router() # - это заменяет диспетчер
 # перенести для модульности сюда все @dp из основного файла бота
 @router.message(Command('start'))
 async def start(message: Message):
-    await message.answer(f"Привет! {message.from_user.first_name}\nТвой айди {message.from_user.id}\n напиши /help для спиская команд", reply_markup=kb.main)
+    await message.answer(f"Привет! {message.from_user.first_name}\nТвой айди {message.from_user.id}\n напиши /help для спиская команд", 
+                         reply_markup=kb.settings)
     print("CommandStart")
+
+@router.message(F.text == "Контакты")
+async def KeyContact(message: Message):
+    await message.reply("8-800-555-35-35 лучше позвонить чем у кого-то отсосать")
 
 @router.message(F.text == "хай")
 async def m_hi(message: Message):
