@@ -5,6 +5,8 @@ from aiogram import F, Router#<----тута добавить Router
 from aiogram.filters import Command
 from aiogram.types import Message
 
+import app.keyboards as kb
+
 router = Router() # - это заменяет диспетчер 
 
 # чтобы потом работало нужно ДОБАВИТЬ в основном файле, в функцию main() dp.include_router(router)
@@ -15,7 +17,7 @@ router = Router() # - это заменяет диспетчер
 # перенести для модульности сюда все @dp из основного файла бота
 @router.message(Command('start'))
 async def start(message: Message):
-    await message.answer(f"Привет! {message.from_user.first_name}\nТвой айди {message.from_user.id}\n напиши /help для спиская команд")
+    await message.answer(f"Привет! {message.from_user.first_name}\nТвой айди {message.from_user.id}\n напиши /help для спиская команд", reply_markup=kb.main)
     print("CommandStart")
 
 @router.message(F.text == "хай")
